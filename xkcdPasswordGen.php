@@ -244,7 +244,20 @@ $words = array("ability", "able", "aboard", "about", "above", "accept", "acciden
   "year", "yellow", "yes", "yesterday", "yet", "you", "young", "younger",
   "your", "yourself", "youth", "zero", "zoo", "battery", "staple");
 
-print_r($words);
+function xkcd_pw_gen($length = 8)
+{
+
+}
+
+function get_a_random_number()
+{
+
+}
+
+function get_a_random_symbol()
+{
+
+}
 
 /**
  * Generate a random password

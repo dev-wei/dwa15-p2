@@ -5,6 +5,7 @@ ini_set("display_errors", 1);
 $title = "xkcd Password Generator";
 $password = "sample-password";
 $qtyOfWords
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,19 +33,20 @@ $qtyOfWords
       <li><a href="#">p3</a></li>
       <li><a href="#">p4</a></li>
     </ul>
-    <h3 class="text-muted"><?=$title?></h3>
+    <h3 class="text-muted"><?= $title ?></h3>
   </div>
 
   <div class="jumbotron">
     <div class="container-fluid">
       <div class="row">
-        <h1><span class="label label-primary"><?=$password?></span></h1>
+        <h1><span class="label label-primary"><?= $password ?></span></h1>
         <br/>
       </div>
       <div class="row">
         <form class="form-horizontal" role="form" action="index.php" method="get">
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label"># of Words (Max 9)</label>
+
             <div class="col-sm-4">
               <input type="text" class="form-control" name="qtyOfWords">
             </div>
@@ -68,6 +70,7 @@ $qtyOfWords
             </div>
           </div>
           <br>
+
           <div class="form-group">
             <div class="col-sm-6">
               <button type="submit" class="btn btn-default">Generate</button>
@@ -78,13 +81,10 @@ $qtyOfWords
     </div>
   </div>
 
-
-
   <div class="footer">
     <p>&copy; Lisabeth Liu 2014</p>
   </div>
 
 </div>
-<!-- /container -->
 </body>
 </html>
