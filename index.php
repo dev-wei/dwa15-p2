@@ -45,10 +45,10 @@ $password = "Sample Password";
 <div class="container">
   <div class="header">
     <ul class="nav nav-pills pull-right">
-      <li><a href="#">p1</a></li>
-      <li class="active"><a href="#">p2</a></li>
-      <li><a href="#">p3</a></li>
-      <li><a href="#">p4</a></li>
+      <li><a href="http://p1.lisaliu.me/">p1</a></li>
+      <li class="active" href="http://p2.lisaliu.me"><a href="#">p2</a></li>
+      <li><a href="http://p3.lisaliu.me">p3</a></li>
+      <li><a href="http://p4.lisaliu.me">p4</a></li>
     </ul>
     <h3 class="text-muted"><?= $title ?></h3>
   </div>
