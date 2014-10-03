@@ -3,9 +3,7 @@ error_reporting(-1);
 ini_set("display_errors", 1);
 
 $title = "xkcd Password Generator";
-$password = "sample-password";
-$qtyOfWords
-
+$password = "Sample Password";
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +20,26 @@ $qtyOfWords
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
   <title><?= $title; ?></title>
-  <?php require "xkcdPasswordGen.php"; ?>
+  <?php require_once "xkcdPasswordGen.php"; ?>
+  <?php
+  $password_length = 0;
+  if (isset($_POST['qtyOfWords'])) {
+    $password_length = $_POST['qtyOfWords'];
+  }
+  $password_isIncludingNumber = false;
+  if (isset($_POST['isIncludingNumber'])) {
+    $password_isIncludingNumber = true;
+  }
+  $password_isIncludingSymbol = false;
+  if (isset($_POST['isIncludingSymbol'])) {
+    $password_isIncludingSymbol = true;
+  }
+
+  if (isset($_POST['qtyOfWords'])) {
+    $passwordGen = new XkcdPasswordGen();
+    $password = $passwordGen->xkcd_pw_gen($password_length, $password_isIncludingNumber, $password_isIncludingSymbol);
+  }
+  ?>
 </head>
 <body>
 <div class="container">
@@ -43,19 +60,27 @@ $qtyOfWords
         <br/>
       </div>
       <div class="row">
-        <form class="form-horizontal" role="form" action="index.php" method="get">
+        <form class="form-horizontal" role="form" action="index.php" method="post">
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label"># of Words (Max 9)</label>
 
             <div class="col-sm-4">
-              <input type="text" class="form-control" name="qtyOfWords">
+              <input type="text" class="form-control" name="qtyOfWords" value="<?php
+              if (isset($_POST['qtyOfWords'])) {
+                echo htmlentities($_POST['qtyOfWords']);
+              }
+              ?>">
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-6">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="isIncludingNumber"> Add a number
+                  <input type="checkbox" name="isIncludingNumber" <?php
+                  if (isset($_POST['isIncludingNumber'])) {
+                    echo "checked";
+                  }
+                  ?>> Add a number
                 </label>
               </div>
             </div>
@@ -64,7 +89,11 @@ $qtyOfWords
             <div class="col-sm-6">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="isIncludingSymbol"> Add a symbol
+                  <input type="checkbox" name="isIncludingSymbol" <?php
+                  if (isset($_POST['isIncludingSymbol'])) {
+                    echo "checked";
+                  }
+                  ?>> Add a symbol
                 </label>
               </div>
             </div>
@@ -88,3 +117,4 @@ $qtyOfWords
 </div>
 </body>
 </html>
+
