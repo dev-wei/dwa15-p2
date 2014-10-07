@@ -97,7 +97,7 @@ $password = "Sample Password";
                   if (isset($_POST['isIncludingSymbol'])) {
                     echo "checked";
                   }
-                  ?>> Add a symbol
+                  ?>> Add a special character
                 </label>
               </div>
             </div>
