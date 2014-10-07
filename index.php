@@ -90,7 +90,7 @@ $password = "Sample Password";
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="margin-left: 30px">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="isIncludingSymbol" <?php
